@@ -2,7 +2,7 @@ import { ArrowDownRight, ArrowUpRight, Download, Github, Linkedin, Mail } from "
 import { ProjectRail } from "@/components/project-rail";
 import { Reveal } from "@/components/reveal";
 import { ScrollSequence } from "@/components/scroll-sequence";
-import { SystemMap } from "@/components/system-map";
+import { SystemSequence } from "@/components/system-sequence";
 
 const projects = [
   {
@@ -109,10 +109,9 @@ export default function Home() {
           <h2 id="system-title">One connected system.<br />No black boxes.</h2>
           <p>
             Product, interface, models, queues, and rendering are designed as one continuous experience.
-            Move across the map to inspect the pipeline.
           </p>
         </div>
-        <SystemMap />
+        <SystemSequence />
       </section>
 
       <section id="work" className="work-section">

@@ -325,6 +325,8 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: auto;
+  min-height: 620px;
   padding-top: 7rem;
   padding-bottom: 7rem;
 }
@@ -342,18 +344,49 @@ a {
   line-height: 1.7;
 }
 
-.system-map {
+.system-sequence {
   position: relative;
-  min-height: 700px;
+  height: 100vh;
+  min-height: 620px;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.system-map canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.system-labels {
+.system-sequence video {
   position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 360ms ease;
+}
+
+.system-sequence video.is-ready {
+  opacity: 1;
+}
+
+.system-sequence-glass {
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 27, 32, 0.1);
+  pointer-events: none;
+}
+
+.system-sequence-glass::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image: url("/bg-texture.webp");
+  background-size: 720px 460px;
+  mix-blend-mode: multiply;
+  opacity: 0.12;
+}
+
+.system-stage-list {
+  position: absolute;
+  z-index: 2;
   right: 7%;
   bottom: 11%;
   left: 4%;
@@ -362,6 +395,28 @@ a {
   color: #9d9da5;
   font-size: 0.56rem;
   text-align: center;
+}
+
+.system-stage-list span {
+  position: relative;
+  transition: color 180ms ease;
+}
+
+.system-stage-list span::before {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  content: "";
+  background: currentColor;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0.45;
+}
+
+.system-stage-list span.is-active {
+  color: var(--lime);
 }
 
 .work-section {
@@ -633,11 +688,20 @@ a {
   }
 
   .system-copy {
-    padding-bottom: 0;
+    position: relative;
+    height: auto;
+    min-height: auto;
+    padding-bottom: 2.5rem;
   }
 
-  .system-map {
-    min-height: 480px;
+  .system-section {
+    min-height: auto;
+  }
+
+  .system-sequence {
+    position: relative;
+    height: 62vh;
+    min-height: 460px;
   }
 
   .experience-intro {
@@ -680,6 +744,18 @@ a {
 
   .sequence-counter {
     top: 84px;
+  }
+
+  .system-sequence {
+    height: 58vh;
+    min-height: 390px;
+  }
+
+  .system-stage-list {
+    right: 1.25rem;
+    bottom: 1.5rem;
+    left: 1.25rem;
+    font-size: 0.5rem;
   }
 
   .manifesto h2,

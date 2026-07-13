@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "frames:hero": "node scripts/extract-frames.mjs hero",
-    "frames:system": "node scripts/extract-frames.mjs system"
+    "frames:hero": "node scripts/extract-frames.mjs hero"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

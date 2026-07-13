@@ -37,3 +37,4 @@ npm run frames:hero -- .\assets\hero-flow.mp4
 
 The command creates optimized WebP frames under `public/sequences/hero/` and updates the frame manifest. The raw MP4 does not need to ship with the site.
 
+Commit the generated `public/sequences/hero/frame-*.webp` files with the manifest before deploying. Railway only serves files present in the git checkout, so a manifest with `frameCount` greater than `0` requires the matching frame files to be tracked.
