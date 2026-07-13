@@ -1,4 +1,16 @@
-import { ArrowDownRight, ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  Brain,
+  Download,
+  GitBranch,
+  Github,
+  Linkedin,
+  Mail,
+  MessageCircle,
+  Network,
+  ShieldCheck,
+} from "lucide-react";
 import { ProjectRail } from "@/components/project-rail";
 import { Reveal } from "@/components/reveal";
 import { ScrollSequence } from "@/components/scroll-sequence";
@@ -39,6 +51,25 @@ const projects = [
   },
 ];
 
+const ownedProducts = [
+  {
+    number: "01",
+    title: "Org Brain",
+    status: "Private beta",
+    label: "Operational memory for AI teams",
+    summary:
+      "A workspace brain that turns GitHub, Linear, chat, code, and project activity into approved operational memory, temporal graph facts, and evidence-backed agent plans.",
+    stack: ["React", "Socket.IO", "GitHub indexing", "Linear", "RAG", "Context graph"],
+    capabilities: [
+      { icon: Brain, label: "@brain answers with code, chat, tickets, and memory" },
+      { icon: ShieldCheck, label: "Memory Inbox keeps humans in the approval loop" },
+      { icon: Network, label: "Context Graph maps repos, owners, workflows, tools, and decisions" },
+      { icon: GitBranch, label: "@agent drafts shadow-mode plans before any execution" },
+      { icon: MessageCircle, label: "Realtime workspace chat becomes searchable team context" },
+    ],
+  },
+];
+
 const experience = [
   {
     period: "MAY 2026 - NOW",
@@ -75,6 +106,7 @@ export default function Home() {
         <a className="wordmark" href="#top" aria-label="V Adarsh, back to top">VA<span>.</span></a>
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
+          <a href="#products">Products</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -112,6 +144,85 @@ export default function Home() {
           </p>
         </div>
         <SystemSequence />
+      </section>
+
+      <section id="products" className="product-lab section-pad" aria-labelledby="products-title">
+        <div className="product-lab-intro">
+          <div>
+            <p className="eyebrow light">OWNED PRODUCTS</p>
+            <h2 id="products-title">A shelf for products I&apos;m building end to end.</h2>
+          </div>
+          <p>
+            This is where my own products live, separate from client and company systems. Org Brain is
+            the first one: a real operating layer for teams that want AI agents to understand how work
+            actually happens.
+          </p>
+        </div>
+
+        <div className="owned-product-grid">
+          {ownedProducts.map((product, index) => (
+            <Reveal className="owned-product-card" key={product.title} delay={index * 0.08}>
+              <div className="owned-product-copy">
+                <div className="owned-product-meta">
+                  <span>{product.number}</span>
+                  <span>{product.status}</span>
+                </div>
+                <p className="owned-product-label">{product.label}</p>
+                <h3>{product.title}</h3>
+                <p className="owned-product-summary">{product.summary}</p>
+                <div className="owned-product-stack" aria-label={`${product.title} stack`}>
+                  {product.stack.map((item) => <span key={item}>{item}</span>)}
+                </div>
+              </div>
+
+              <div className="owned-product-map" aria-label={`${product.title} capabilities`}>
+                <div className="product-core">
+                  <Brain size={34} aria-hidden="true" />
+                  <span>MEMORY<br />CORE</span>
+                </div>
+                <div className="product-signal product-signal-chat">CHAT</div>
+                <div className="product-signal product-signal-code">CODE</div>
+                <div className="product-signal product-signal-ticket">LINEAR</div>
+                <div className="product-signal product-signal-agent">AGENT</div>
+                <div className="product-signal-line line-one" aria-hidden="true" />
+                <div className="product-signal-line line-two" aria-hidden="true" />
+                <div className="product-signal-line line-three" aria-hidden="true" />
+                <div className="product-signal-line line-four" aria-hidden="true" />
+              </div>
+
+              <div className="owned-product-capabilities">
+                {product.capabilities.map(({ icon: Icon, label }) => (
+                  <div className="capability-row" key={label}>
+                    <Icon size={17} aria-hidden="true" />
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          ))}
+
+          <div className="product-index" aria-label="Future product index">
+            <div className="product-index-head">
+              <span>Product index</span>
+              <span>{String(ownedProducts.length).padStart(2, "0")} live</span>
+            </div>
+            <div className="product-index-row is-active">
+              <span>01</span>
+              <strong>Org Brain</strong>
+              <em>Operational memory</em>
+            </div>
+            <div className="product-index-row">
+              <span>02</span>
+              <strong>Next product</strong>
+              <em>Reserved</em>
+            </div>
+            <div className="product-index-row">
+              <span>03</span>
+              <strong>Next product</strong>
+              <em>Reserved</em>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="work" className="work-section">

@@ -422,6 +422,7 @@ a {
 .section-heading h2,
 .experience h2,
 .contact h2,
+.product-lab h2,
 .system-copy h2 {
   margin: 0;
   font-family: var(--font-display), sans-serif;
@@ -576,6 +577,330 @@ a {
 
 .system-stage-list span.is-active {
   color: var(--lime);
+}
+
+.product-lab {
+  padding-top: clamp(6rem, 11vw, 10rem);
+  padding-bottom: clamp(6rem, 11vw, 10rem);
+  color: var(--paper);
+  background: #17171a url("/bg-texture.webp") repeat;
+  background-size: 720px 460px;
+}
+
+.product-lab-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.55fr);
+  gap: clamp(2.5rem, 7vw, 8rem);
+  align-items: end;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.product-lab h2 {
+  max-width: 13ch;
+  font-size: clamp(3rem, 6.8vw, 7rem);
+}
+
+.product-lab-intro > p {
+  max-width: 48ch;
+  margin: 0;
+  color: #c9c9cf;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.75;
+}
+
+.owned-product-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.34fr);
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.owned-product-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(340px, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  min-height: 680px;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  overflow: hidden;
+  border: 2px solid var(--paper);
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, rgba(247, 208, 233, 0.08), rgba(72, 118, 255, 0.09)),
+    #1f1f24;
+  box-shadow: 10px 10px 0 var(--lime);
+}
+
+.owned-product-card::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(90deg, rgba(0,0,0,0.1), #000 45%, rgba(0,0,0,0.25));
+  pointer-events: none;
+}
+
+.owned-product-copy,
+.owned-product-map,
+.owned-product-capabilities {
+  position: relative;
+  z-index: 1;
+}
+
+.owned-product-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.owned-product-meta,
+.product-index-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--lime);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+}
+
+.owned-product-label {
+  margin: auto 0 1rem;
+  color: var(--orange);
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.owned-product-card h3 {
+  max-width: 8ch;
+  margin: 0;
+  color: var(--paper);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(4rem, 8vw, 9rem);
+  font-weight: 400;
+  line-height: 0.84;
+  text-shadow: 4px 4px 0 var(--blue);
+  overflow-wrap: anywhere;
+}
+
+.owned-product-summary {
+  max-width: 54ch;
+  margin: 1.6rem 0 0;
+  color: #d8d8dd;
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.owned-product-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 2rem;
+}
+
+.owned-product-stack span {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(255, 253, 249, 0.28);
+  color: var(--paper);
+  background: rgba(255, 253, 249, 0.045);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+}
+
+.owned-product-map {
+  min-height: 410px;
+  align-self: center;
+}
+
+.product-core,
+.product-signal {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45);
+}
+
+.product-core {
+  top: 50%;
+  left: 50%;
+  width: clamp(150px, 17vw, 230px);
+  aspect-ratio: 1;
+  color: var(--ink);
+  background: var(--lime);
+  transform: translate(-50%, -50%) rotate(-4deg);
+}
+
+.product-core span {
+  margin-top: 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.product-signal {
+  width: clamp(82px, 10vw, 132px);
+  aspect-ratio: 1;
+  color: var(--ink);
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+.product-signal-chat {
+  top: 7%;
+  left: 10%;
+  background: var(--pink);
+  transform: rotate(5deg);
+}
+
+.product-signal-code {
+  top: 13%;
+  right: 8%;
+  color: var(--paper);
+  background: var(--blue);
+  transform: rotate(-6deg);
+}
+
+.product-signal-ticket {
+  right: 13%;
+  bottom: 8%;
+  background: var(--orange);
+  transform: rotate(5deg);
+}
+
+.product-signal-agent {
+  bottom: 11%;
+  left: 7%;
+  background: var(--paper);
+  transform: rotate(-5deg);
+}
+
+.product-signal-line {
+  position: absolute;
+  height: 2px;
+  background: rgba(255, 253, 249, 0.42);
+  transform-origin: left center;
+}
+
+.line-one {
+  top: 31%;
+  left: 27%;
+  width: 27%;
+  transform: rotate(26deg);
+}
+
+.line-two {
+  top: 32%;
+  right: 23%;
+  width: 25%;
+  transform: rotate(149deg);
+}
+
+.line-three {
+  right: 26%;
+  bottom: 31%;
+  width: 24%;
+  transform: rotate(210deg);
+}
+
+.line-four {
+  bottom: 33%;
+  left: 24%;
+  width: 26%;
+  transform: rotate(-29deg);
+}
+
+.owned-product-capabilities {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  margin-top: auto;
+  border: 1px solid rgba(255, 253, 249, 0.16);
+  background: rgba(255, 253, 249, 0.14);
+}
+
+.capability-row {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  min-height: 132px;
+  padding: 1rem;
+  background: rgba(23, 23, 26, 0.88);
+}
+
+.capability-row svg {
+  color: var(--lime);
+}
+
+.capability-row span {
+  color: #d7d7dd;
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.product-index {
+  display: grid;
+  align-content: start;
+  min-height: 680px;
+  padding: 1.15rem;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--pink);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.product-index-head {
+  color: var(--purple);
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(23, 23, 26, 0.35);
+}
+
+.product-index-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem 1rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid rgba(23, 23, 26, 0.26);
+}
+
+.product-index-row span {
+  color: var(--blue);
+  font-size: 0.72rem;
+}
+
+.product-index-row strong {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.product-index-row em {
+  grid-column: 2;
+  color: rgba(23, 23, 26, 0.62);
+  font-size: 0.66rem;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.product-index-row.is-active {
+  color: var(--paper);
+  background: var(--blue);
+  margin-right: -1.15rem;
+  margin-left: -1.15rem;
+  padding-right: 1.15rem;
+  padding-left: 1.15rem;
+}
+
+.product-index-row.is-active span,
+.product-index-row.is-active em {
+  color: var(--paper);
 }
 
 .work-section {
@@ -833,6 +1158,9 @@ a {
 
   .manifesto,
   .system-section,
+  .product-lab-intro,
+  .owned-product-grid,
+  .owned-product-card,
   .experience {
     grid-template-columns: 1fr;
   }
@@ -861,6 +1189,23 @@ a {
     position: relative;
     height: 62vh;
     min-height: 460px;
+  }
+
+  .owned-product-card,
+  .product-index {
+    min-height: auto;
+  }
+
+  .owned-product-copy {
+    min-height: 430px;
+  }
+
+  .owned-product-map {
+    min-height: 420px;
+  }
+
+  .owned-product-capabilities {
+    grid-template-columns: 1fr 1fr;
   }
 
   .experience-intro {
@@ -921,8 +1266,54 @@ a {
   .section-heading h2,
   .experience h2,
   .contact h2,
+  .product-lab h2,
   .system-copy h2 {
     overflow-wrap: anywhere;
+  }
+
+  .product-lab {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .owned-product-card {
+    gap: 1rem;
+    padding: 1.1rem;
+    box-shadow: 6px 6px 0 var(--lime);
+  }
+
+  .owned-product-copy {
+    min-height: auto;
+  }
+
+  .owned-product-card h3 {
+    font-size: clamp(3.4rem, 18vw, 5.5rem);
+    text-shadow: 2px 2px 0 var(--blue);
+  }
+
+  .owned-product-map {
+    min-height: 360px;
+  }
+
+  .product-core {
+    width: 142px;
+  }
+
+  .product-signal {
+    width: 78px;
+    font-size: 0.58rem;
+  }
+
+  .owned-product-capabilities {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-row {
+    min-height: auto;
+  }
+
+  .product-index {
+    box-shadow: 6px 6px 0 var(--ink);
   }
 
   .section-heading svg {
