@@ -23,8 +23,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/sequences/hero/frame-0001.webp"
+          fetchPriority="high"
+        />
+      </head>
       <body className={`${display.variable} ${mono.variable}`}>{children}</body>
     </html>
   );
 }
-
