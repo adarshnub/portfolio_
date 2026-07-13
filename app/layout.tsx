@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import { Bowlby_One_SC, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-production-af8b.up.railway.app";
+const railwayUrl = process.env.RAILWAY_PUBLIC_DOMAIN
+  ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`
+  : undefined;
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  process.env.SITE_URL ??
+  railwayUrl ??
+  "https://portfolio-production-af6b.up.railway.app";
 const previewImage = "/og-image.jpg";
 const title = "V Adarsh | AI Engineer";
 const description =
