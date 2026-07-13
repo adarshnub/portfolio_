@@ -14,7 +14,6 @@ import {
 import { ProjectRail } from "@/components/project-rail";
 import { Reveal } from "@/components/reveal";
 import { ScrollSequence } from "@/components/scroll-sequence";
-import { SystemSequence } from "@/components/system-sequence";
 
 const projects = [
   {
@@ -67,6 +66,39 @@ const ownedProducts = [
       { icon: GitBranch, label: "@agent drafts shadow-mode plans before any execution" },
       { icon: MessageCircle, label: "Realtime workspace chat becomes searchable team context" },
     ],
+  },
+];
+
+const systemNodes = [
+  {
+    id: "01",
+    title: "Product",
+    detail: "Real user intent, constraints, and success criteria.",
+    tone: "pink",
+  },
+  {
+    id: "02",
+    title: "Interface",
+    detail: "Fast controls, visible state, and direct feedback.",
+    tone: "lime",
+  },
+  {
+    id: "03",
+    title: "Models",
+    detail: "Grounded reasoning with context, tools, and guardrails.",
+    tone: "blue",
+  },
+  {
+    id: "04",
+    title: "Queues",
+    detail: "Reliable jobs, retries, progress, and cost awareness.",
+    tone: "orange",
+  },
+  {
+    id: "05",
+    title: "Render",
+    detail: "Outputs that can be inspected, shipped, and improved.",
+    tone: "paper",
   },
 ];
 
@@ -143,7 +175,39 @@ export default function Home() {
             Product, interface, models, queues, and rendering are designed as one continuous experience.
           </p>
         </div>
-        <SystemSequence />
+        <div className="system-map" aria-label="Connected product system map">
+          <div className="system-map-board">
+            <div className="system-map-line system-line-a" aria-hidden="true" />
+            <div className="system-map-line system-line-b" aria-hidden="true" />
+            <div className="system-map-line system-line-c" aria-hidden="true" />
+            <div className="system-map-line system-line-d" aria-hidden="true" />
+            <div className="system-map-line system-line-e" aria-hidden="true" />
+
+            <div className="system-core-node">
+              <Brain size={38} aria-hidden="true" />
+              <span>SYSTEM<br />CORE</span>
+            </div>
+
+            {systemNodes.map((node) => (
+              <div className={`system-node system-node-${node.tone}`} key={node.id}>
+                <div>
+                  <span>{node.id}</span>
+                  <strong>{node.title}</strong>
+                </div>
+                <p>{node.detail}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="system-pipeline" aria-label="Pipeline stages">
+            {systemNodes.map((node) => (
+              <div className={`system-pipeline-step system-pipeline-${node.tone}`} key={node.title}>
+                <span>{node.id}</span>
+                <strong>{node.title}</strong>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section id="products" className="product-lab section-pad" aria-labelledby="products-title">
