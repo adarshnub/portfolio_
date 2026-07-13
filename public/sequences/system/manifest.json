@@ -1,0 +1,5 @@
+{
+  "frameCount": 0,
+  "pattern": "/sequences/system/frame-{frame}.webp",
+  "fallback": "/storyboards/system-start.png"
+}

@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+.codex-ref-suburbia/
+tmp/
+public/sequences/hero/frame-*.webp
+public/sequences/system/frame-*.webp
+npm-debug.log*

@@ -1,0 +1,5 @@
+{
+  "frameCount": 180,
+  "pattern": "/sequences/hero/frame-{frame}.webp",
+  "fallback": "/storyboards/hero-start.png"
+}
