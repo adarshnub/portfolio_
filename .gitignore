@@ -8,4 +8,6 @@ tmp/
 public/sequences/system/frame-*.webp
 public/omnivideos/*.mp4
 !public/omnivideos/One_connected_system_no_black_202607131711.mp4
+!public/omnivideos/hero-scroll-master.mp4
+!public/omnivideos/hero-scroll-master-mobile.mp4
 npm-debug.log*

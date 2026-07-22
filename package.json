@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "frames:hero": "node scripts/extract-frames.mjs hero"
+    "frames:hero": "node scripts/extract-frames.mjs hero",
+    "video:hero": "node scripts/encode-hero-video.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

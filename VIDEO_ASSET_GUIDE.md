@@ -1,12 +1,12 @@
-# Hero Sequence Production Guide
+# Hero Scroll Film Production Guide
 
-The homepage is ready for one 6-second, 16:9 image-to-video shot. The browser maps the extracted frames directly to scroll position, so the source video must be a single continuous camera move without cuts.
+The homepage uses a 6-second, 16:9 MP4 whose playback time is mapped directly to scroll position. The delivery masters use the same fast-seek profile as the Datacom scroll film: 24 fps with a keyframe every six frames (0.25 seconds), one reference frame, and no scene-cut keyframes.
 
 ## Deliverables
 
 - Resolution: 1920 x 1080 minimum, 3840 x 2160 preferred
 - Duration: 6 seconds
-- Frame rate: 30 fps
+- Frame rate: 24 fps
 - Camera: one continuous slow push-through, no cuts or handheld shake
 - Export: H.264 MP4, high bitrate, no audio
 - Continuity: preserve the central frame-engine object, materials, and palette from the supplied first and last images
@@ -32,9 +32,9 @@ No people, hands, faces, typography, logos, watermarks, scene cuts, camera shake
 Place the returned MP4 anywhere in the repo, then run:
 
 ```powershell
-npm run frames:hero -- .\assets\hero-flow.mp4
+npm run video:hero -- .\assets\hero-flow.mp4
 ```
 
-The command creates optimized WebP frames under `public/sequences/hero/` and updates the frame manifest. The raw MP4 does not need to ship with the site.
+The command creates two H.264 masters under `public/omnivideos/`: a 1280px desktop version at CRF 20 and a 960px mobile version at CRF 23. Both use H.264 High profile, 24 fps, a six-frame GOP, one reference frame, `yuv420p`, and fast-start metadata.
 
-Commit the generated `public/sequences/hero/frame-*.webp` files with the manifest before deploying. Railway only serves files present in the git checkout, so a manifest with `frameCount` greater than `0` requires the matching frame files to be tracked.
+Commit both generated masters before deploying. The original source remains useful for future re-encodes but is not loaded by the hero.

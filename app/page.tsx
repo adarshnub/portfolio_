@@ -50,6 +50,70 @@ const projects = [
   },
 ];
 
+const independentProjects = [
+  {
+    number: "01",
+    title: "Tracefy",
+    category: "Developer tooling",
+    summary:
+      "A local-first debugging companion that connects VS Code, browser, terminal, and code context into one redacted timeline for AI-assisted diagnosis and patch previews.",
+    stack: ["TypeScript", "VS Code", "Chrome", "OpenAI"],
+    color: "lime",
+    repo: "https://github.com/adarshnub/tracefy",
+    live: "https://tracefy-website.vercel.app",
+  },
+  {
+    number: "02",
+    title: "Agent OS",
+    category: "Agent runtime",
+    summary:
+      "A local AI desktop runtime with scoped capabilities, shared memory, brokered device access, audit logs, and rollback snapshots before agents modify a workspace.",
+    stack: ["React", "Electron", "Express", "Playwright"],
+    color: "blue",
+    repo: "https://github.com/adarshnub/agent-os",
+  },
+  {
+    number: "03",
+    title: "Kingdom MMO",
+    category: "Distributed game systems",
+    summary:
+      "A server-authoritative mobile 4X foundation with realtime messaging, building queues, map viewports, march dispatch, deterministic combat, workers, and deployment infrastructure.",
+    stack: ["NestJS", "Unity", "WebSockets", "Terraform"],
+    color: "orange",
+    repo: "https://github.com/adarshnub/kingdom-mmo",
+  },
+  {
+    number: "04",
+    title: "Textify",
+    category: "Speech tooling",
+    summary:
+      "A Python CLI that turns audio into structured transcripts with word-level timestamps, confidence scores, speaker diarization, and automatic CPU or GPU selection.",
+    stack: ["Python", "WhisperX", "Pyannote", "FFmpeg"],
+    color: "paper",
+    repo: "https://github.com/adarshnub/textify",
+  },
+  {
+    number: "05",
+    title: "Conceptly",
+    category: "AI education",
+    summary:
+      "An interactive learning product with short AI lessons, authored wrong-answer feedback, sequential unlocks, XP, streaks, replay, and optional AI coaching.",
+    stack: ["Next.js", "Drizzle", "Supabase", "OpenAI"],
+    color: "pink",
+    repo: "https://github.com/adarshnub/Conceptly",
+  },
+  {
+    number: "06",
+    title: "Plotverse",
+    category: "AI real estate",
+    summary:
+      "A multi-agent automation studio that finds, analyzes, and matches real-estate properties with potential clients while keeping each workflow and recommendation inspectable.",
+    stack: ["Next.js", "Multi-agent", "Supabase", "OpenAI"],
+    color: "navy",
+    repo: "https://github.com/adarshnub/plotverse",
+  },
+];
+
 const ownedProducts = [
   {
     number: "01",
@@ -138,6 +202,7 @@ export default function Home() {
         <a className="wordmark" href="#top" aria-label="V Adarsh, back to top">VA<span>.</span></a>
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
+          <a href="#independent">Labs</a>
           <a href="#products">Products</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
@@ -298,6 +363,61 @@ export default function Home() {
           <ArrowDownRight size={52} strokeWidth={1.5} aria-hidden="true" />
         </div>
         <ProjectRail projects={projects} />
+      </section>
+
+      <section
+        id="independent"
+        className="independent-projects section-pad"
+        aria-labelledby="independent-title"
+      >
+        <div className="independent-intro">
+          <div>
+            <p className="eyebrow light">SIDE QUESTS / OPEN SOURCE</p>
+            <h2 id="independent-title">Independent builds.</h2>
+          </div>
+          <div className="independent-intro-copy">
+            <p>
+              Useful tools, ambitious systems, and experiments I built because the problem was too
+              interesting to leave alone.
+            </p>
+            <a href="https://github.com/adarshnub?tab=repositories" target="_blank" rel="noreferrer">
+              <Github size={18} aria-hidden="true" /> All repositories <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <div className="independent-grid">
+          {independentProjects.map((project, index) => (
+            <Reveal className="independent-card-reveal" key={project.title} delay={(index % 2) * 0.08}>
+              <article className={`independent-card ${project.color}`}>
+                <div className="independent-card-meta">
+                  <span>{project.number} / 06</span>
+                  <span>{project.category}</span>
+                </div>
+
+                <div className="independent-card-copy">
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                </div>
+
+                <div className="independent-card-stack" aria-label={`${project.title} technology stack`}>
+                  {project.stack.map((item) => <span key={item}>{item}</span>)}
+                </div>
+
+                <div className="independent-card-links">
+                  <a href={project.repo} target="_blank" rel="noreferrer">
+                    <Github size={17} aria-hidden="true" /> Source <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                  {project.live && (
+                    <a href={project.live} target="_blank" rel="noreferrer">
+                      Live project <ArrowUpRight size={16} aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       <section className="experience section-pad" aria-labelledby="experience-title">
